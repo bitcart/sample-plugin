@@ -39,7 +39,8 @@
         "properties": {
           "type": {
             "description": "Installation type",
-            "type": "string"
+            "type": "string",
+            "enum": ["admin", "store", "backend", "docker-compose"]
           },
           "path": {
             "description": "Installation path",
