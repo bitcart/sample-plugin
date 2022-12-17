@@ -5,5 +5,8 @@
   "version": "1.0.0",
   "description": "Plugin showing how to use BitcartCC",
   "constraints": { "bitcartcc": "" },
-  "installs": [{ "type": "admin", "path": "src/admin/test-page" }]
+  "installs": [
+    { "type": "admin", "path": "src/admin/test-page" },
+    { "type": "store", "path": "src/store/test-page" }
+  ]
 }
