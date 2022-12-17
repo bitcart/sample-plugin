@@ -1,11 +1,9 @@
 {
-  "$schema": "./schema.json",
+  "$schema": "https://bitcartcc.com/schemas/plugin/1.0.0/plugin.schema.json",
   "name": "sample-plugin",
   "organization": "bitcartcc",
   "version": "1.0.0",
   "description": "Plugin showing how to use BitcartCC",
-  "constraints": {
-    "bitcartcc": ">=0.7.0.0"
-  },
+  "constraints": { "bitcartcc": "" },
   "installs": [{ "type": "admin", "path": "src/admin/test-page" }]
 }
