@@ -7,6 +7,7 @@
   "constraints": { "bitcartcc": "" },
   "installs": [
     { "type": "admin", "path": "src/admin/test-page" },
-    { "type": "store", "path": "src/store/test-page" }
+    { "type": "store", "path": "src/store/test-page" },
+    { "type": "backend", "path": "src/backend/testapi" }
   ]
 }
