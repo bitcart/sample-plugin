@@ -1,13 +1,17 @@
 {
-  "$schema": "https://bitcartcc.com/schemas/plugin/1.0.0/plugin.schema.json",
-  "name": "sample-plugin",
-  "organization": "bitcartcc",
-  "version": "1.0.0",
-  "description": "Plugin showing how to use BitcartCC",
-  "constraints": { "bitcartcc": "" },
-  "installs": [
-    { "type": "admin", "path": "src/admin/test-page" },
-    { "type": "store", "path": "src/store/test-page" },
-    { "type": "backend", "path": "src/backend/testapi" }
-  ]
+    "$schema": "https://bitcartcc.com/schemas/plugin/1.1.0/plugin.schema.json",
+    "name": "Sample plugin",
+    "author": "bitcartcc",
+    "license": "MIT",
+    "website": "https://bitcartcc.com",
+    "source_url": "https://github.com/bitcartcc/sample-plugin",
+    "docs_url": "https://docs.bitcartcc.com",
+    "version": "1.0.0",
+    "description": "Plugin showing how to use BitcartCC",
+    "constraints": { "bitcartcc": "" },
+    "installs": [
+        { "type": "admin", "path": "src/admin/test-page" },
+        { "type": "store", "path": "src/store/test-page" },
+        { "type": "backend", "path": "src/backend/testapi" }
+    ]
 }
