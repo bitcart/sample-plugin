@@ -1,0 +1,11 @@
+version: 2.1
+
+orbs:
+  bitcartcc: bitcartcc/bitcartcc-shared@1
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - bitcartcc/validate-plugins:
+          name: validate-plugins
