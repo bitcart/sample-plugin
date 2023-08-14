@@ -1,5 +1,5 @@
 export default {
-  name: "@bitcartcc/test-page",
+  name: "@bitcart/test-page",
   aliases: {
     "@TestPage": "/",
   },
