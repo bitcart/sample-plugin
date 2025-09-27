@@ -1,14 +1,17 @@
-from api.models import BaseModel, Column, DateTime, ForeignKey, Text, User
+from sqlalchemy import ForeignKey, Text
+from sqlalchemy.orm import Mapped, mapped_column
+
+from api.models import RecordModel
 
 
-class PluginBaseModel(BaseModel):
+class PluginBaseModel(RecordModel):
     TABLE_PREFIX = "testapi"
 
+    __abstract__ = True
 
-class Reviews(PluginBaseModel):
+
+class Review(PluginBaseModel):
     __tablename__ = "reviews"
 
-    id = Column(Text, primary_key=True, index=True)
-    name = Column(Text)
-    created = Column(DateTime(True), nullable=False)
-    user_id = Column(Text, ForeignKey(User.id, ondelete="SET NULL"))
+    name: Mapped[str] = mapped_column(Text)
+    user_id: Mapped[str | None] = mapped_column(Text, ForeignKey("users.id", ondelete="SET NULL"))
