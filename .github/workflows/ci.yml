@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow_ref }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate-plugins:
+    name: validate-plugins
+    uses: bitcart/bitcart-actions/.github/workflows/validate-plugins.yml@master
+
+  zizmor:
+    name: zizmor
+    uses: bitcart/bitcart-actions/.github/workflows/zizmor-audit.yml@master
+    permissions:
+      contents: read
+      security-events: write
