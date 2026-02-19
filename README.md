@@ -12,4 +12,4 @@ An interactive wizard will help you to create your first plugin, properly config
 
 You can then use `bitcart-cli plugin validate directory` to ensure it's correct and `bitcart-cli plugin package directory` to create the plugin archive.
 
-This repository's plugin validity is checked by our bitcart/bitcart-actions shared github actions repository, which in turn runs `bitcart-cli plugin validate`
+This repository's plugin validity is checked by our [bitcart/bitcart-actions](https://github.com/bitcart/bitcart-actions) shared github actions repository, which in turn runs `bitcart-cli plugin validate`
