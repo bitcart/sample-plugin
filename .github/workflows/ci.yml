@@ -18,9 +18,10 @@ jobs:
     name: validate-plugins
     uses: bitcart/bitcart-actions/.github/workflows/validate-plugins.yml@master
 
-  zizmor:
-    name: zizmor
-    uses: bitcart/bitcart-actions/.github/workflows/zizmor-audit.yml@master
+  workflows:
+    name: workflows
+    uses: bitcart/bitcart-actions/.github/workflows/workflow-checks.yml@master
+
     permissions:
       contents: read
-      security-events: write
+      security-events: write # needed for github advanced security
