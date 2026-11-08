@@ -4,7 +4,7 @@ from typing import Any
 from fastapi import FastAPI
 
 from api import models
-from api.plugins import BasePlugin, update_metadata
+from api.plugins import BasePlugin, TemplateAudience, TemplateScope, TemplateTestData, sample_model, update_metadata
 from modules.bitcart.testapi.schemas import TestEventMessage
 from modules.bitcart.testapi.views import router
 
@@ -15,9 +15,17 @@ class Plugin(BasePlugin):
     def setup_app(self, app: FastAPI) -> None:
         app.include_router(router, prefix="/reviews", tags=["reviews"])
 
+    async def get_test_template_context(self, data: TemplateTestData[models.Product]) -> dict[str, Any]:
+        return {"product": data.owner or sample_model(models.Product)}
+
     async def startup(self) -> None:
         self.context.register_hook("db_create_invoice", self.handle_invoice)
-        self.register_template("test", applicable_to="product")
+        self.register_template(
+            "test",
+            applicable_to=TemplateScope.PRODUCT,
+            audience=TemplateAudience.EXTERNAL,
+            get_test_context=self.get_test_template_context,
+        )
         self.context.register_event("test_event", ["message"])
         self.context.register_event_handler("test_event", self.handle_event)
         self.context.register_event_handler("invoice_status", self.handle_event)
